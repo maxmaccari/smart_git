@@ -29,3 +29,11 @@
     Elm
   </button>
 </div>
+
+<div id="list-repos" class="bg-white w-full rounded-lg shadow p-4">
+  <ul class="divide-y divide-gray-200" id="allRepos">
+    <%= for i <- 1..10 do %>
+    <%= live_component RepoDetail, id: "repo-#{i}" %>
+    <% end %>
+  </ul>
+</div>
