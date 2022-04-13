@@ -25,7 +25,8 @@ config :smart_git, SmartGitWeb.Endpoint,
   secret_key_base: "Ynsz6wvGgO3lDxAw8HUfaVaXawYmwvArK0taT4miCcrWx/z64/JDeawYeShJU9JG",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
 
 # ## SSL Support
