@@ -61,7 +61,9 @@ defmodule SmartGit.MixProject do
       {:sobelow, "~> 0.8", only: :dev},
       {:dialyxir, "~> 0.5.0", only: [:dev, :test], runtime: false},
       {:mix_test_watch, "~> 1.0", only: [:dev, :test], runtime: false},
-      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev}
+      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
+      {:tesla, "~> 1.4"},
+      {:hackney, "~> 1.17"}
     ]
   end
 
