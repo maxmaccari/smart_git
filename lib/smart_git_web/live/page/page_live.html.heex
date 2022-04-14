@@ -1,39 +1,42 @@
 <div class="mx-auto flex items-center justify-between py-4 mb-10">
-  <button data-role="btn-language-select" data-id="elixir"
+  <button data-role="btn-language-select" data-id="elixir" phx-click="select-language" phx-value-language="elixir"
     class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition-colors">
     Elixir
   </button>
 
-  <button data-role="btn-language-select" data-id="elixir"
+  <button data-role="btn-language-select" data-id="ruby" phx-click="select-language" phx-value-language="ruby"
     class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full transition-colors">
     Ruby
   </button>
 
-  <button data-role="btn-language-select" data-id="elixir"
+  <button data-role="btn-language-select" data-id="javascript" phx-click="select-language"
+    phx-value-language="javascript"
     class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full transition-colors">
     Javascript
   </button>
 
-  <button data-role="btn-language-select" data-id="elixir"
+  <button data-role="btn-language-select" data-id="rust" phx-click="select-language" phx-value-language="rust"
     class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full transition-colors">
     Rust
   </button>
 
-  <button data-role="btn-language-select" data-id="elixir"
+  <button data-role="btn-language-select" data-id="f#" phx-click="select-language" phx-value-language="f#"
     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition-colors">
     F#
   </button>
 
-  <button data-role="btn-language-select" data-id="elixir"
+  <button data-role="btn-language-select" data-id="elm" phx-click="select-language" phx-value-language="elm"
     class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full transition-colors">
     Elm
   </button>
 </div>
 
 <div id="list-repos" class="bg-white w-full rounded-lg shadow p-4">
-  <ul class="divide-y divide-gray-200" id="allRepos">
-    <%= for i <- 1..10 do %>
-    <%= live_component RepoDetail, id: "repo-#{i}" %>
+  <ul class="divide-y divide-gray-200" id="allRepos" phx-update="append">
+    <%= for repo <- @repos do %>
+    <%= live_component RepoDetail, id: "repo-#{repo.id}", repo: repo %>
     <% end %>
   </ul>
 </div>
+
+<div id="load-repos" phx-hook="LoadRepos"></div>
