@@ -32,9 +32,11 @@
 </div>
 
 <div id="list-repos" class="bg-white w-full rounded-lg shadow p-4">
-  <ul class="divide-y divide-gray-200" id="allRepos">
+  <ul class="divide-y divide-gray-200" id="allRepos" phx-update="append">
     <%= for repo <- @repos do %>
     <%= live_component RepoDetail, id: "repo-#{repo.id}", repo: repo %>
     <% end %>
   </ul>
 </div>
+
+<div id="load-repos" phx-hook="LoadRepos"></div>
